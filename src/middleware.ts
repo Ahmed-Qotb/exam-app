@@ -2,7 +2,7 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
 const authPages = new Set(["/sign-in", "/sign-up", "/forget-password"]);
-const privatePages = new Set(["/dashboard", "/quiz-history"]);
+const privatePages = new Set(["/dashboard", "/quiz-history" , "/"]);
 
 export default async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
