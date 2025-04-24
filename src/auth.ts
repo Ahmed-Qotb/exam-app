@@ -24,8 +24,8 @@ export const authOptions: NextAuthOptions = {
         });
         const payload: APIResponse<User> = await response.json();
 
-        if ("error" in payload) {
-          throw new Error(payload.error);
+        if ("code" in payload) {
+          throw new Error(payload.message);
         }
 
         return {

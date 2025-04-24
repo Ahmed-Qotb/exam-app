@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { getExams } from "@/lib/api/exams.api";
 import { catchError } from "@/lib/utils/catch-error";
-import Link from "next/link";
 import { FaBook } from "react-icons/fa";
 import QuestionsDialog from "./question-dialog";
 

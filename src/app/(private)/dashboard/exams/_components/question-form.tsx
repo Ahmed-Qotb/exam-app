@@ -10,13 +10,12 @@ import {
 import { AnswersFields, ExamSchema } from "@/lib/schemes/exam.schema";
 import { question } from "@/lib/types/question";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils/cn";
-import { CheckResponse, exam } from "@/lib/types/exams";
+import { CheckResponse } from "@/lib/types/exams";
 import ExamDuration from "./exam-duration";
 import useCheckQuestions from "../_hooks/use-check-questions";
 import ExamResaults from "./exam-results";

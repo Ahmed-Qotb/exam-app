@@ -6,7 +6,6 @@ import { Progress } from "@/components/ui/progress";
 import { AiFillFlag } from "react-icons/ai";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { FaCircleCheck } from "react-icons/fa6";
-import { text } from "stream/consumers";
 
 async function Page() {
   const [userData, error] = await catchError(getUserData);
