@@ -1,0 +1,45 @@
+import React from "react";
+import AuthNav from "@/app/(auth)/_components/register-nav";
+import bro from "../../../public/assets/images/bro.png";
+import Image from "next/image";
+function layout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <div className="sm:flex justify-between w-full">
+      {/* welcome section */}
+      <div className="bg-main2 p-5 lg:pt-20 lg:pb-44 lg:ps-20 lg:pe-36 rounded-r-[6rem] shadow-large">
+        <div>
+          {/* text */}
+          <div className="mb-5 sm:mb-20">
+            <h2 className="font-bold text-5xl pb-2 leading-[150%]">
+              Welcome to
+              <br />
+              <span className="text-main">Elevate</span>
+            </h2>
+            <p>
+              Quidem autem voluptatibus qui quaerat aspernatur architecto natus
+            </p>
+          </div>
+          {/* bro image */}
+          <div className="pe-10 sm:pe-20">
+            <Image
+            priority
+              src={bro}
+              width={408}
+              alt="bro image"
+              className="w-full"
+            ></Image>
+          </div>
+        </div>
+      </div>
+      {/* form + nav section */}
+      <div className="sm:p-20 pt-14 sm:w-[65%]">
+        <div className="sm:justify-self-end justify-self-center">
+          <AuthNav />
+        </div>
+        <div className="h-full flex justify-center items-center p-4 mt-5">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+export default layout;
