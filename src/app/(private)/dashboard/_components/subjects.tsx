@@ -3,9 +3,12 @@ import { catchError } from "@/lib/utils/catch-error";
 import Link from "next/link";
 
 async function Page() {
+
+  // ? variables
   const [subjects, error] = await catchError(() => getSubjects(6));
+
   if (error) {
-    console.log("error happened while fetching subjects :", error);
+    console.log("error happened while fetching subjects :", error.message);
   }
 
   //   console.log(subjects);

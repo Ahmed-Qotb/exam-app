@@ -1,6 +1,7 @@
 import { getAuthHeader } from "../utils/auth-header";
 import { singleSubject, subjects } from "../types/subjects";
 
+// ? get all subjects (subject-list component)
 export const getSubjects = async (limit: number) => {
   const url = new URL(`${process.env.API}/subjects`);
 
@@ -20,6 +21,7 @@ export const getSubjects = async (limit: number) => {
   return payload;
 };
 
+// ? get single subject ([subjectId])
 export const getSingleSubjects = async (subjectId: string) => {
   const url = new URL(`${process.env.API}/subjects/${subjectId}`);
 

@@ -8,11 +8,13 @@ import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { FaCircleCheck } from "react-icons/fa6";
 
 async function Page() {
+
+  // ? variables
   const [userData, error] = await catchError(getUserData);
+  
   if (error) {
-    console.log("fetch failed for", error);
+    console.log("fetch failed for", error.message);
   }
-  // console.log(userData);
 
   const achivements: { icon: React.ReactNode; value: string; text: string }[] =
     [
@@ -32,6 +34,7 @@ async function Page() {
         text: "Correct Answers",
       },
     ];
+
   return (
     <>
       {/* profile image */}

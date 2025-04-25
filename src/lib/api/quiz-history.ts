@@ -1,6 +1,7 @@
 import { getAuthHeader } from "../utils/auth-header";
 import { History } from "../types/history";
 
+// ? get user quiz history
 export const getHistory = async () => {
   const url = new URL(`${process.env.API}/questions/history`);
 

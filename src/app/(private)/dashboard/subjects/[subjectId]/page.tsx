@@ -11,12 +11,13 @@ interface SubjectPageProps {
 export default async function SubjectPage({ params }: SubjectPageProps) {
   const { subjectId } = params;
 
-  // Fetch subject data from your API
+  // ? variables
   const [payload, error] = await catchError(() => getSingleSubjects(subjectId));
-  console.log(payload);
+  // console.log(payload);
 
   if (error) {
-    console.log(error);
+    console.log(error.message);
+    return <p>error happened while fetching : {error.message}</p>;
   }
 
   return (

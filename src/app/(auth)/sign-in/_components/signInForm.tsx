@@ -16,10 +16,10 @@ import { signInFields, signInSchema } from "@/lib/schemes/signIn.schema";
 import useSignIn from "../_hooks/use-signin";
 
 function SignInForm() {
-  // ?mustation
+  // ? hooks
   const { isPending, error, login } = useSignIn();
   // console.log(error);
-  
+
   // ?initializing react hook form
   const form = useForm<signInFields>({
     defaultValues: {
@@ -107,10 +107,9 @@ function SignInForm() {
           <span className="text-main cursor-pointer">Recover Password ?</span>
         </div>
 
-        {error?.message == "Cannot read properties of undefined (reading '_id')" && (
-          <p className="text-[#F04438] px-3 mb-2">
-            Wrong Email or Password
-          </p>
+        {error?.message ==
+          "Cannot read properties of undefined (reading '_id')" && (
+          <p className="text-[#F04438] px-3 mb-2">Wrong Email or Password</p>
         )}
 
         {/* submit button */}

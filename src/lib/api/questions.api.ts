@@ -1,6 +1,7 @@
 import { getAuthHeader } from "../utils/auth-header";
 import { questions } from "../types/question";
 
+// ? get all questions in a single exam
 export const getQuestions = async (examId: string) => {
   const url = new URL(`${process.env.API}/questions`);
   url.searchParams.append("exam", examId);

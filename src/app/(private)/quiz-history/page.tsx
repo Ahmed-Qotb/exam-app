@@ -16,6 +16,7 @@ async function Page() {
 
   // ?variables
   const history = data?.history;
+
   return (
     <>
       {data.history ? (

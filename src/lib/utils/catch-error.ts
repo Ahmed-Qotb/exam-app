@@ -1,3 +1,4 @@
+// ? cleaner way to handle errors in fetch apis
 export async function catchError<T>(
   callback: () => Promise<APIResponse<T>>
 ): Promise<[successfulResponse<T> | null, Error | null]> {
