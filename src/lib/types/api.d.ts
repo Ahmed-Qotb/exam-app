@@ -1,19 +1,19 @@
-declare type dataBaseProbs = {
+declare type DatabaseProps = {
   _id: string;
   createdAt: string;
   updatedAt?: string;
 };
 
-declare type errorResponse = {
+declare type ErrorResponse = {
   message: string;
   code: number;
 };
 
-declare type successfulResponse<T> = {
+declare type SuccessfulResponse<T> = {
   message: string;
 } & T;
 
-declare type paginatedResponse<T> = {
+declare type PaginatedResponse<T> = {
   metadata: {
     currentPage: number;
     numberOfPages: number;
@@ -22,4 +22,4 @@ declare type paginatedResponse<T> = {
   };
 } & T;
 
-declare type APIResponse<T> = successfulResponse<T> | errorResponse;
+declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;

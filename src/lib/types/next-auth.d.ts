@@ -15,19 +15,18 @@ declare module "next-auth" {
       phone: string;
       role: string;
       isVerified: false;
-    } & dataBaseProbs;
+    } & DatabaseProps;
   }
 
   /**
    * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
    */
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   interface Session extends Omit<User, "token"> {}
 }
 
 declare module "next-auth/jwt" {
   /** Returned by the `jwt` callback and `getToken`, when using JWT sessions */
-  interface JWT extends User {
-    /** OpenID ID Token */
-    idToken?: string;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  interface JWT extends User {}
 }

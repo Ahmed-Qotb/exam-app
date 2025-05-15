@@ -25,16 +25,13 @@ async function Page() {
           <div className="w-1/2">
             <div>
               <p>
-                Question :{" "}
-                <span className="text-main">{history?.QID.question}</span>
+                Question : <span className="text-custom-main">{history?.QID.question}</span>
               </p>
               <p>
-                correct answer :{" "}
-                <span className="text-main">{history?.QID.correct}</span>
+                correct answer : <span className="text-custom-main">{history?.QID.correct}</span>
               </p>
               <p>
-                chosenAnswer :{" "}
-                <span className="text-main">{history?.chosenAnswer}</span>
+                chosenAnswer : <span className="text-custom-main">{history?.chosenAnswer}</span>
               </p>
             </div>
           </div>
@@ -42,8 +39,7 @@ async function Page() {
           {/* data */}
           <div>
             <p>
-              avgAnswerTime :{" "}
-              <span className="text-main">{history?.avgAnswerTime}</span>
+              avgAnswerTime : <span className="text-custom-main">{history?.avgAnswerTime}</span>
             </p>
           </div>
         </div>

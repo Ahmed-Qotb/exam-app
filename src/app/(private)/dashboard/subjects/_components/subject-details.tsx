@@ -11,16 +11,10 @@ export default function SubjectDetails({ subject }: SubjectDetailsProps) {
   return (
     <div className="bg-white rounded-lg shadow p-6 min-h-[60vh]">
       <div>
-        <Image
-          alt="subject image"
-          width={300}
-          height={300}
-          src={subject.category.icon}
-        ></Image>
+        <Image alt="subject image" width={300} height={300} src={subject.category.icon}></Image>
       </div>
       <p className="">
-        subject name :{" "}
-        <span className="text-main">{subject.category.name}</span>
+        subject name : <span className="text-custom-main">{subject.category.name}</span>
       </p>
     </div>
   );

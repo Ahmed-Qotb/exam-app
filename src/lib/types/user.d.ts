@@ -1,4 +1,4 @@
-export type userDataType = {
+export type UserDataType = {
   user: {
     username: string;
     firstName: string;
@@ -7,7 +7,7 @@ export type userDataType = {
     phone: string;
     role: string;
     isVerified: boolean;
-  } & dataBaseProbs;
+  } & DatabaseProps;
 } & APIResponse<T>;
 
-export type LogOut = successfulResponse<T> | errorResponse;
+export type LogOut = SuccessfulResponse<T> | ErrorResponse;

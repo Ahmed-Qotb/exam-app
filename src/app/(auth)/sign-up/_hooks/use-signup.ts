@@ -1,8 +1,8 @@
-import { SignUpFields } from '@/lib/schemes/signUp.schema';
+import { SignUpFields } from "@/lib/schemes/signup.schema";
 import { useMutation } from "@tanstack/react-query";
 import { signUpAction } from "../_actions/signUp.action";
 
-export default function useSinUp() {
+export default function useSignUp() {
   const { isPending, error, mutate } = useMutation({
     mutationFn: async (fields: SignUpFields) => {
       const payload = await signUpAction(fields);

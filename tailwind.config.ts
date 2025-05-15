@@ -1,25 +1,26 @@
 import type { Config } from "tailwindcss";
+import tailwindAnimate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: ["class"],
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
-      fontFamily:{
-        inter: ['var(--font-inter)'],
-        poppins: ['var(--font-poppins)'],
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+        poppins: ["var(--font-poppins)"],
       },
-      boxShadow: {
+      "box-shadow": {
         large: "5px 0 80px -20px rgba(0, 0, 0, 0.2)",
         small: "0px 10px 30px 0px rgba(68, 97, 242, 0.1)",
       },
       colors: {
-        main2: "#F0F4FC",
-        main: "#4461F2",
+        "custom-gray": {
+          300: "#696F79",
+          400: "#979CA3",
+        },
+        "custom-secondary": "#F0F4FC",
+        "custom-main": "#4461F2",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -68,6 +69,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindAnimate],
 };
 export default config;

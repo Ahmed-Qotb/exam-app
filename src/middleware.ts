@@ -2,7 +2,7 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
 const authPages = new Set(["/sign-in", "/sign-up", "/forget-password"]);
-const privatePages = new Set(["/dashboard", "/quiz-history" , "/"]);
+const privatePages = new Set(["/dashboard", "/quiz-history", "/"]);
 
 export default async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
@@ -14,6 +14,7 @@ export default async function middleware(req: NextRequest) {
       const redirectUrl = new URL("/dashboard", req.url);
       return NextResponse.redirect(redirectUrl);
     }
+
     return NextResponse.next();
   }
 
@@ -27,6 +28,7 @@ export default async function middleware(req: NextRequest) {
 
   return NextResponse.next();
 }
+
 export const config = {
   matcher: [
     /*

@@ -8,6 +8,7 @@ import { decode, JWT } from "next-auth/jwt";
 export async function getAuthHeader() {
   const tokenCookie = cookies().get(AUTH_COOKIE)?.value;
   let JWT: JWT | null = null;
+
   try {
     JWT = await decode({
       token: tokenCookie,

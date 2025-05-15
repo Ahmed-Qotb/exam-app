@@ -18,4 +18,4 @@ export type History = {
     chosenAnswer: string;
     avgAnswerTime: string;
   };
-} & dataBaseProbs;
+} & DatabaseProps;

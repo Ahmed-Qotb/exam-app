@@ -1,15 +1,15 @@
-export type subject = {
+export type Subject = {
   name: string;
   icon: string;
-} & dataBaseProbs;
+} & DatabaseProps;
 
-export type singleSubject = {
+export type SingleSubject = {
   category: {
     name: string;
     icon: string;
-  } & dataBaseProbs;
+  } & DatabaseProps;
 };
 
-export type subjects = {
-  subjects: subject[];
+export type Subjects = {
+  subjects: Subject[];
 };

@@ -1,14 +1,15 @@
-import SignUpForm from "./_components/signUpForm";
+import SignUpForm from "./_components/signup-form";
 
-function page() {
+function Page() {
   return (
     <div className="w-full">
-      <h2 className="font-bold text-2xl mb-8 font-inter sm:text-start text-center">
-        Sign up
-      </h2>
+      {/* Title */}
+      <h2 className="font-bold text-2xl mb-8 font-inter sm:text-start text-center">Sign up</h2>
+
+      {/* Form */}
       <SignUpForm />
     </div>
   );
 }
 
-export default page;
+export default Page;

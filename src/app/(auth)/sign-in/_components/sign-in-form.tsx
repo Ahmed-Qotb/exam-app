@@ -1,18 +1,11 @@
 "use client";
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signInFields, signInSchema } from "@/lib/schemes/signIn.schema";
+import { SignInFields, signInSchema } from "@/lib/schemes/signin.schema";
 import useSignIn from "../_hooks/use-signin";
 
 function SignInForm() {
@@ -21,7 +14,7 @@ function SignInForm() {
   // console.log(error);
 
   // ?initializing react hook form
-  const form = useForm<signInFields>({
+  const form = useForm<SignInFields>({
     defaultValues: {
       email: "",
       password: "",
@@ -30,7 +23,7 @@ function SignInForm() {
   });
 
   // ? on submit func
-  const onSubmit: SubmitHandler<signInFields> = (values) => {
+  const onSubmit: SubmitHandler<SignInFields> = (values) => {
     login(values);
   };
   return (
@@ -54,9 +47,7 @@ function SignInForm() {
                     type="email"
                     placeholder="Enter Email"
                     className={`h-14 text-[#A1A4A9] shadow-small rounded-[10px] bg-[#F9F9F9] font-inter border-[#E0E0E9] ${
-                      hasError
-                        ? "focus-visible:outline-[#F04438] border-[#F04438]"
-                        : "focus-visible:outline-main"
+                      hasError ? "focus-visible:outline-[#F04438] border-[#F04438]" : "focus-visible:outline-custom-main"
                     }`}
                   />
                 </FormControl>
@@ -88,9 +79,7 @@ function SignInForm() {
                     type="password"
                     placeholder="Password"
                     className={`h-14 text-[#A1A4A9] shadow-small rounded-[10px] bg-[#F9F9F9] font-inter border-[#E0E0E9] ${
-                      hasError
-                        ? "focus-visible:outline-[#F04438] border-[#F04438]"
-                        : "focus-visible:outline-main "
+                      hasError ? "focus-visible:outline-[#F04438] border-[#F04438]" : "focus-visible:outline-custom-main "
                     }`}
                   />
                 </FormControl>
@@ -104,22 +93,18 @@ function SignInForm() {
 
         {/* reset password */}
         <div className="mb-10 flex justify-end">
-          <span className="text-main cursor-pointer">Recover Password ?</span>
+          <span className="text-custom-main cursor-pointer">Recover Password ?</span>
         </div>
 
-        {error?.message ==
-          "Cannot read properties of undefined (reading '_id')" && (
+        {error?.message == "Cannot read properties of undefined (reading '_id')" && (
           <p className="text-[#F04438] px-3 mb-2">Wrong Email or Password</p>
         )}
 
         {/* submit button */}
         <Button
-          disabled={
-            isPending || (form.formState.isSubmitted && !form.formState.isValid)
-          }
+          disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
           type="submit"
-          className="w-full bg-main rounded-[20px] text-white hover:bg-blue-700"
-        >
+          className="w-full bg-custom-main rounded-[20px] text-white hover:bg-blue-700">
           Sign in
         </Button>
       </form>

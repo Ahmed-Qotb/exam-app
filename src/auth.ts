@@ -1,5 +1,6 @@
 import type { NextAuthOptions, User } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+
 export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/sign-in",
@@ -13,7 +14,6 @@ export const authOptions: NextAuthOptions = {
       authorize: async (credentials) => {
         const response = await fetch(`${process.env.API}/auth/signin`, {
           method: "POST",
-          cache: "no-store",
           headers: {
             "content-type": "application/json",
           },
@@ -22,6 +22,7 @@ export const authOptions: NextAuthOptions = {
             password: credentials?.password,
           }),
         });
+
         const payload: APIResponse<User> = await response.json();
 
         if ("code" in payload) {
@@ -42,10 +43,12 @@ export const authOptions: NextAuthOptions = {
         token.token = user.token;
         token.user = user.user;
       }
+
       return token;
     },
     session: ({ session, token }) => {
       session.user = token.user;
+
       return session;
     },
   },

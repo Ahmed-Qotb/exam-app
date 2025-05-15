@@ -1,4 +1,5 @@
 "use client";
+
 import { LuAlarmClock } from "react-icons/lu";
 import { useEffect, useState } from "react";
 
@@ -8,18 +9,17 @@ type ExamDuration = {
   onTimeChange?: (date: Date) => void;
 };
 
+const formatTime = (date: Date) => {
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const seconds = date.getSeconds().toString().padStart(2, "0");
+  return `${minutes}:${seconds}`;
+};
+
 function ExamDuration({ duration, onTimerEnd, onTimeChange }: ExamDuration) {
-  // ?state
+  // ? State
   const [date, setDate] = useState(new Date(new Date(0).setMinutes(duration)));
 
-  // ? variables
-  const formatTime = (date: Date) => {
-    const minutes = date.getMinutes().toString().padStart(2, "0");
-    const seconds = date.getSeconds().toString().padStart(2, "0");
-    return `${minutes}:${seconds}`;
-  };
-
-  // ? effects
+  // ? Effects
   useEffect(() => {
     const timerId = setInterval(() => {
       setDate((prevDate) => {
