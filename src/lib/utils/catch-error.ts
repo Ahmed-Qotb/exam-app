@@ -1,7 +1,5 @@
 // ? cleaner way to handle errors in fetch apis
-export async function catchError<T>(
-  callback: () => Promise<APIResponse<T>>
-): Promise<[successfulResponse<T> | null, Error | null]> {
+export async function catchError<T>(callback: () => Promise<APIResponse<T>>): Promise<[SuccessfulResponse<T> | null, Error | null]> {
   try {
     const payload = await callback();
 

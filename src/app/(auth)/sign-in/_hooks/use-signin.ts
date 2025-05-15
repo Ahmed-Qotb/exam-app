@@ -1,4 +1,4 @@
-import { signInFields } from "@/lib/schemes/signIn.schema";
+import { signInFields } from "@/lib/schemes/signin.schema";
 import { useMutation } from "@tanstack/react-query";
 import { signIn } from "next-auth/react";
 import { toast } from "sonner";

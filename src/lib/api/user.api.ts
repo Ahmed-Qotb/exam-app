@@ -1,4 +1,4 @@
-import { userDataType } from "@/lib/types/userdata";
+import { UserDataType } from "@/lib/types/user";
 import { getAuthHeader } from "../utils/auth-header";
 
 // ? get user data (profile componant)
@@ -10,6 +10,8 @@ export const getUserData = async () => {
       ...(await getAuthHeader()),
     },
   });
-  const payload: APIResponse<userDataType> = await response.json();
+
+  const payload: APIResponse<UserDataType> = await response.json();
+
   return payload;
 };

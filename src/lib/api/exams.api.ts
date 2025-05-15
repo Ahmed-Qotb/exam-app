@@ -1,5 +1,5 @@
 import { getAuthHeader } from "../utils/auth-header";
-import { exams } from "../types/exams";
+import { Exams } from "../types/exams";
 
 // ? get all exams with limit params
 export const getExams = async (limit: number) => {
@@ -16,8 +16,7 @@ export const getExams = async (limit: number) => {
     },
   });
 
-  const payload: APIResponse<paginatedResponse<exams>> =
-    await response.json();
+  const payload: APIResponse<PaginatedResponse<Exams>> = await response.json();
 
   return payload;
 };

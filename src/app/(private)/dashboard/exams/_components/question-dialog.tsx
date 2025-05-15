@@ -1,40 +1,32 @@
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import QuestionForm from "./question-form";
 import { getQuestions } from "@/lib/api/questions.api";
 import { catchError } from "@/lib/utils/catch-error";
+
 async function Page({ exam }: { exam: string }) {
   const [payload, error] = await catchError(() => getQuestions(exam));
+
   if (error) {
     return <p>{error.message}</p>;
   }
 
-  // console.log(payload);
-  // console.log(exam);
-
   return (
     <Dialog>
-      {/* triggger */}
+      {/* Triggger */}
       <DialogTrigger asChild>
-        <Button className="bg-main rounded-full text-white px-6 h-7">
-          start
-        </Button>
+        <Button className="bg-custom-main rounded-full text-white px-6 h-7">start</Button>
       </DialogTrigger>
+
+      {/* Content */}
       <DialogContent className="bg-white rounded-3xl min-h-[550px]">
-        {/* header */}
+        {/* Header */}
         <DialogHeader>
           <DialogTitle></DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
 
-        {/* content */}
+        {/* Content */}
         <QuestionForm questions={payload?.questions ?? []} />
       </DialogContent>
     </Dialog>

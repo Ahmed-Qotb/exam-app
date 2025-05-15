@@ -1,11 +1,10 @@
-import { exam } from "./exams";
-import { subject } from "./subjects";
+import { Exam } from "./exams";
 
-export type questions = {
-  questions: question[];
+export type Questions = {
+  questions: Question[];
 };
 
-type question = {
+type Question = {
   answers: {
     answer: string;
     key: string;
@@ -13,6 +12,6 @@ type question = {
   type: "single_choice" | "multiple_choice";
   question: "What does HTML stand for?";
   correct: "A2";
-  subject: subject;
-  exam: exam;
-} & dataBaseProbs;
+  subject: Subject;
+  exam: Exam;
+} & DatabaseProps;

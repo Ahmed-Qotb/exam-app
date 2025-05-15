@@ -1,16 +1,9 @@
 "use client";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { AnswersFields, ExamSchema } from "@/lib/schemes/exam.schema";
 import { question } from "@/lib/types/question";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {  useState } from "react";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
@@ -78,45 +71,31 @@ function QuestionForm({ questions }: QuestionFormProps) {
         <>
           {/* header */}
           <header className="flex justify-between items-center text-sm">
-            <p className="text-main">
+            <p className="text-custom-main">
               question {step + 1} : {questions.length}
             </p>
 
             {/* duration */}
-            <ExamDuration
-              duration={questions[step].exam.duration}
-              onTimeChange={(date) => form.setValue("time", date.getMinutes())}
-            />
+            <ExamDuration duration={questions[step].exam.duration} onTimeChange={(date) => form.setValue("time", date.getMinutes())} />
           </header>
 
           {/* steps */}
           <ul className="flex items-center justify-between">
             {Array.from({ length: questions.length }, (_, i) => i).map((i) => (
-              <li
-                key={i}
-                className={cn(
-                  "size-2 bg-slate-400 rounded-full transition-colors",
-                  step + 1 > i && "bg-main"
-                )}
-              ></li>
+              <li key={i} className={cn("size-2 bg-slate-400 rounded-full transition-colors", step + 1 > i && "bg-custom-main")}></li>
             ))}
           </ul>
 
           {/* form */}
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="font-inter grow flex flex-col"
-            >
+            <form onSubmit={form.handleSubmit(onSubmit)} className="font-inter grow flex flex-col">
               <FormField
                 control={form.control}
                 name={`answers.${step}`}
                 render={({ field }) => (
                   <FormItem>
                     {/* label */}
-                    <FormLabel className="font-semibold text-lg">
-                      {currentQusestion.question}
-                    </FormLabel>
+                    <FormLabel className="font-semibold text-lg">{currentQusestion.question}</FormLabel>
 
                     {/* options */}
                     <FormControl>
@@ -131,25 +110,16 @@ function QuestionForm({ questions }: QuestionFormProps) {
                           });
                         }}
                         name={currentQusestion._id}
-                        className="flex flex-col space-y-1"
-                      >
+                        className="flex flex-col space-y-1">
                         {currentQusestion.answers.map((answer) => (
-                          <FormItem
-                            key={answer.key}
-                            className="flex items-center space-x-3 space-y-0 bg-[#EDEFF3] ps-4  rounded-xl"
-                          >
+                          <FormItem key={answer.key} className="flex items-center space-x-3 space-y-0 bg-[#EDEFF3] ps-4  rounded-xl">
                             {/* radio */}
                             <FormControl>
-                              <RadioGroupItem
-                                className="text-main"
-                                value={answer.key}
-                              />
+                              <RadioGroupItem className="text-custom-main" value={answer.key} />
                             </FormControl>
 
                             {/* label */}
-                            <FormLabel className="font-normal grow py-4 px-4 cursor-pointer">
-                              {answer.answer}
-                            </FormLabel>
+                            <FormLabel className="font-normal grow py-4 px-4 cursor-pointer">{answer.answer}</FormLabel>
                           </FormItem>
                         ))}
                       </RadioGroup>
@@ -158,8 +128,7 @@ function QuestionForm({ questions }: QuestionFormProps) {
                     {/* feedback */}
                     <FormMessage className="text-green-600 font-bold text-xl" />
                   </FormItem>
-                )}
-              ></FormField>
+                )}></FormField>
 
               {/* footer */}
               <div className="grid grid-cols-2 gap-6 mt-auto">
@@ -177,8 +146,7 @@ function QuestionForm({ questions }: QuestionFormProps) {
 
                     setStep((prev) => prev - 1);
                   }}
-                  className="bg-white border border-main rounded-full text-main hover:bg-slate-200 "
-                >
+                  className="bg-white border border-custom-main rounded-full text-custom-main hover:bg-slate-200 ">
                   Previos
                 </Button>
                 <Button
@@ -205,8 +173,7 @@ function QuestionForm({ questions }: QuestionFormProps) {
 
                     setStep((prev) => prev + 1);
                   }}
-                  className="bg-main rounded-full text-white hover:bg-blue-600 "
-                >
+                  className="bg-custom-main rounded-full text-white hover:bg-blue-600 ">
                   {step < questions.length - 1 ? "Next" : "Submit"}
                 </Button>
               </div>

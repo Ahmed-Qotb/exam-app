@@ -10,6 +10,8 @@ export const getHistory = async () => {
       ...(await getAuthHeader()),
     },
   });
+
   const payload: APIResponse<History> = await response.json();
+
   return payload;
 };

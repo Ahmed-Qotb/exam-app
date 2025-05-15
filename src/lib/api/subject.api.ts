@@ -1,5 +1,5 @@
 import { getAuthHeader } from "../utils/auth-header";
-import { singleSubject, subjects } from "../types/subjects";
+import { SingleSubject, Subjects } from "../types/subjects";
 
 // ? get all subjects (subject-list component)
 export const getSubjects = async (limit: number) => {
@@ -15,14 +15,13 @@ export const getSubjects = async (limit: number) => {
     },
   });
 
-  const payload: APIResponse<paginatedResponse<subjects>> =
-    await response.json();
+  const payload: APIResponse<PaginatedResponse<Subjects>> = await response.json();
 
   return payload;
 };
 
 // ? get single subject ([subjectId])
-export const getSingleSubjects = async (subjectId: string) => {
+export const getSingleSubject = async (subjectId: string) => {
   const url = new URL(`${process.env.API}/subjects/${subjectId}`);
 
   const response = await fetch(url.toString(), {
@@ -30,9 +29,8 @@ export const getSingleSubjects = async (subjectId: string) => {
       ...(await getAuthHeader()),
     },
   });
-  // console.log(response);
 
-  const payload: APIResponse<singleSubject> = await response.json();
+  const payload: APIResponse<SingleSubject> = await response.json();
 
   return payload;
 };

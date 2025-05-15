@@ -24,19 +24,16 @@ export const metadata: Metadata = {
   description: "Test exam app",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
         <main className="max-w-7xl m-auto min-h-[80vh] flex justify-center items-center">
           <Providers>
-            {/* main content */}
+            {/* Main content */}
             {children}
-            {/* toaster */}
+
+            {/* Toaster */}
             <Toaster />
           </Providers>
         </main>

@@ -1,4 +1,4 @@
-export type exam = {
+export type Exam = {
   title: string;
   duration: number;
   subject: string;
@@ -6,8 +6,8 @@ export type exam = {
   active: true;
 } & dataBaseProbs;
 
-export type exams = {
-  exams: exam[];
+export type Exams = {
+  exams: Exam[];
 };
 
 declare type CheckResponse = {
@@ -23,7 +23,6 @@ export type WrongQuestions = {
   Question: string;
   correctAnswer: string;
   inCorrectAnswer: string;
-  // answers: {}
 };
 
 export type CorrectQuestions = {

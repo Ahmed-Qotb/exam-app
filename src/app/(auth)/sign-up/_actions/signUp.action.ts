@@ -1,8 +1,8 @@
 "use server";
 
-import { SignUpFields } from "@/lib/schemes/signUp.schema";
+import { SignUpFields } from "@/lib/schemes/signup.schema";
 import { getAuthHeader } from "@/lib/utils/auth-header";
-import { userDataType } from "@/lib/types/userdata";
+import { UserDataType } from "@/lib/types/user";
 
 export async function signUpAction(fields: SignUpFields) {
   const response = await fetch(`${process.env.API}/auth/signup`, {
@@ -14,7 +14,7 @@ export async function signUpAction(fields: SignUpFields) {
     },
   });
 
-  const payload: APIResponse<userDataType> = await response.json();
+  const payload: APIResponse<UserDataType> = await response.json();
 
   return payload;
 }
